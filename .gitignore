@@ -14,7 +14,7 @@ build/
 *.ipr
 
 ### Gradle ###
-.gradle
+.idea/.gradle
 
 ### Logs ###
 *.log

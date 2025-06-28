@@ -1,38 +1,23 @@
-public class Main {
-    public static void main(String[] args) {
+plugins {
+    id 'java-library'
+}
 
-        int a = 10;
-        int b = 20;
-        double c = 15.5;
+repositories {
+    mavenCentral()
+}
 
-        System.out.println("a + b = " + (a + b));
-        System.out.println("a - b = " + (a - b));
-        System.out.println("a * b = " + (a * b));
-        System.out.println("a / b = " + (a / b));
-        System.out.println("a % b = " + (a % b));
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:7.7.3",
+            "org.junit.jupiter:junit-jupiter:5.9.3",
+            "org.slf4j:slf4j-simple:2.0.7"
+    )
+}
 
-        System.out.println("a + c = " + (a + c));
-        System.out.println("a - c = " + (a - c));
-        System.out.println("a * c = " + (a * c));
-        System.out.println("a / c = " + (a / c));
-        System.out.println("a % c = " + (a % c));
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
-        System.out.println("a >= b = " + (a >= b));
-        System.out.println("a <= b = " + (a <= b));
-        System.out.println("a > b = " + (a > b));
-        System.out.println("a < b = " + (a < b));
-
-        float minFloat = Float.MIN_VALUE;
-        float maxFloat = Float.MAX_VALUE;
-        double minDouble = Double.MIN_VALUE;
-        double maxDouble = Double.MAX_VALUE;
-        double overflow = maxDouble * 2;
-
-        System.out.println("minFloat = " + minFloat);
-        System.out.println("maxFloat = " + maxFloat);
-        System.out.println("minDouble = " + minDouble);
-        System.out.println("maxDouble = " + maxDouble);
-        System.out.println("overflow = " + overflow);
-
-    }
+test {
+    useJUnitPlatform()
 }
